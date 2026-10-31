@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* Design tokens. Measured contrast on paper: ink 15.5:1, muted 6.1:1, spruce 6.3:1, alert 7.3:1, field border 4.5:1. */
+@theme {
+  --color-lichen: #e6ece7; /* page background */
+  --color-paper: #fafbf8; /* card surface */
+  --color-ink: #17241d; /* main text */
+  --color-muted: #52645a; /* secondary text */
+  --color-line: #c5d0c8; /* borders */
+  --color-field: #66786d; /* form field border (needs 3:1 against the page) */
+  --color-spruce: #0f6b4d; /* the one accent */
+  --color-brass: #a86a00; /* star counts */
+  --color-alert: #9b2c2c; /* errors */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  background: var(--color-lichen);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Visible keyboard focus everywhere. */
+:focus-visible {
+  outline: 3px solid var(--color-spruce);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skeleton pulse only for people who have not asked for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .skeleton {
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
